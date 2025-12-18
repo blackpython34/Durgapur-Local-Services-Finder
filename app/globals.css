@@ -2,14 +2,17 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
+  --brand-blue: #2563eb;
+  --brand-dark: #1e40af;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-brand: var(--brand-blue);
+  --color-brand-dark: var(--brand-dark);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +26,19 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+@layer components {
+  .glass-nav {
+    @apply sticky top-0 z-50 w-full border-b border-slate-200/50 bg-white/80 backdrop-blur-md dark:bg-black/80 dark:border-slate-800/50;
+  }
+  
+  .service-card {
+    @apply bg-white dark:bg-slate-900 rounded-[2.5rem] p-6 border border-slate-100 dark:border-slate-800 shadow-sm transition-all duration-300 hover:shadow-2xl hover:-translate-y-1;
+  }
+
+  .input-modern {
+    @apply w-full pl-12 pr-4 py-4 bg-slate-50 dark:bg-slate-800 border-none rounded-2xl outline-none focus:ring-2 focus:ring-brand transition-all;
+  }
 }
